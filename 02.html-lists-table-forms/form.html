@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML FORM</title>
+</head>
+<body>
+    
+    <form>
+        <label for="username">username</label>
+        <input type="text" id="username" required minlength="4" maxlength="16">
+        <br><br>
+
+        <label for="email">email</label>
+        <input type="email" name="" id="email" required placeholder="test@gmail.com">
+
+        <br><br>
+
+
+        <label for="password">password</label>
+        <input type="password" name="" id="password" required placeholder="password here..">
+
+
+        <br><br>
+
+        <input type="number" placeholder="age">
+        <br><br>
+
+        <input type="search" placeholder="search here..">
+
+        <br><br>
+
+        <input type="date">
+        <input type="datetime-local">
+
+
+        <br><br>
+
+        <input type="file" accept="image/*">
+
+
+        <br><br>
+        <input type="range" name="" id="">
+
+        <br><br>
+
+        <label for="">select techs that you know</label>
+        <br>
+
+        <label for="html">HTML</label>
+        <input type="checkbox" name="tech" id="html" checked>
+        <br>
+        <label for="css">CSS</label>
+        <input type="checkbox" name="tech" id="css">
+        <br>
+        <label for="js">JS</label>
+        <input type="checkbox" name="tech" id="js">
+
+        <br><br>
+
+        <label for="">select gender:</label>
+        <br>
+
+        <label for="male">MALE</label>
+        <input type="radio" name="gender" id="male">
+        <label for="female">FEMALE</label>
+        <input type="radio" name="gender" id="female">
+
+        <br>
+        <br>
+        <!-- <input type="radio" name="" id=""> -->
+        <!-- <button type="submit">Submit</button> -->
+
+
+        <hr>
+
+        <select name="" id="">
+            <option value="az">AZ</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+        </select>
+
+
+        <br><br>
+
+        <!-- <label for="city">Select City:</label> -->
+        <select name="" id="city">
+            <!-- <option value="" selected disabled>Select Country</option> -->
+            <option value="" hidden>Select Country</option>
+            <option value="baku">Baku</option>
+            <option value="ganja">Ganja</option>
+            <option value="guba">Guba</option>
+            <option value="lankaran">Lankaran</option>
+        </select>
+
+        <br><br>
+
+        <textarea rows="7"  cols="40" id="" placeholder="your message here.."></textarea>
+
+        <br><br>
+
+         <input type="submit">
+         <input type="reset">
+    </form>
+
+
+    <hr>
+
+
+<form action="/home.html">
+
+  <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+</body>
+</html>

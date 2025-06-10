@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- inline, internal, external css -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- internal css -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            height: 100vh;
+            border: 2px solid;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#team">Team</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <!-- inline css -->
+            <h2 style="color: red">About Section</h2>
+            <p style="background-color: bisque; font-size: 24px; text-align: center;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium impedit suscipit nisi delectus animi laudantium minima recusandae inventore voluptatum? Cum iure quis ipsum. Libero, omnis unde quidem culpa aspernatur voluptatibus?</p>
+        </section>
+        <section id="team">
+            <h2 style="color: blueviolet">Team Section</h2>
+        </section>
+        <section id="contact">
+            <h2 style="color: teal">Contact Section</h2>
+        </section>
+
+    </main>
+
+
+    <a href="#header">back to top</a>
+    <footer>
+        This is footer part
+    </footer>
+</body>
+
+</html>
