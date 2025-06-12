@@ -1,0 +1,120 @@
+/* universal or globale selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.text {
+    color: orange;
+    background-color: black;
+    font-size: 20px;
+}
+
+.text-teal {
+    color: teal;
+}
+
+/* selectors */
+
+span {
+    color: red;
+}
+
+p {
+    color: orange;
+}
+
+#text {
+    color: green;
+}
+
+section .text {
+    color: blue;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    border: 2px solid;
+}
+
+.boxes .box {
+    background-color: yellow;
+    border-color: black;
+}
+
+.boxes .box.box-2 {
+    background-color: green;
+    border-color: red;
+}
+
+/* CSS Specificity */
+
+/* global css, element, class, id, inline css, important */
+
+#main-heading {
+    color: red;
+}
+h3 {
+    color: purple !important;
+}
+
+.main-heading {
+    color: blue;
+}
+
+p.bg-green {
+    background-color: green;
+}
+
+.class1,
+.class2 {
+    font-size: 24px;
+}
+
+
+a[target="_blank"] {
+    color: blue;
+}
+
+
+header{
+    background-color: black;
+    padding: 10px;
+}
+header nav a {
+    color: white;
+}
+
+header nav a:hover {
+    color: yellow;
+}
+
+input:focus {
+    outline: 2px solid blue;
+    border: none;
+}
+
+.info{
+    color: red;
+}
+.info:hover {
+    color: green;
+}
+
+.info::first-line {
+    color: blue;
+}
+
+/* .wrapper .text:last-child{
+    background-color: red;
+} */
+.wrapper .text:nth-child(even) {
+    background-color: red;
+}
+
+.hello::before {
+    content: " World!";
+    color: blue;
+}
