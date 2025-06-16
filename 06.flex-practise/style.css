@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Roboto Mono", monospace;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER SECTION */
+
+header{
+    background-color: #20484F;
+}
+header .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+
+}
+
+.header h4{
+    color: #fff;
+    font-size: 1.5rem;
+    
+}
+
+.header nav ul{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.header nav ul a{
+    color: #fff;
+}
+.header nav ul a:hover{
+    color: #B8E4DA;
+}
+
+.header .auth-btns{
+    display: flex;
+    gap: 1rem;
+}
+.header .auth-btns button{
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border-radius: 0.5rem;
+    transition: all 0.4s;
+}
+
+.header .auth-btns button:hover{
+    background-color: #B8E4DA;
+    color: #20484F;
+}
+
+
+
+
+/* TEAM SECTION */
+
+#team{
+    padding: 5rem 0;
+    background-color: beige;
+}
+#team .team-title{
+    text-align: center;
+    padding: 1.5rem 0;
+}
+#team .team-desc{
+    text-align: center;
+}
+
+
+#team .team{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+.team .team-member-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 25%;
+    background-color: #fff;
+    padding: 2rem 0;
+    border-radius: 0.5rem;
+}
+
+.team .team-member-card img{
+    border-radius: 50%;
+    width: 50%;
+}
+
+
+
+/* FOOTER SECTION */
+
+footer{
+    background-color: #20484F;
+    padding: 2rem 0;
+}
+.footer .footer-left, .footer .footer-right{
+    width: 50%;
+}
+
+.footer{
+    display: flex;
+    border-bottom: 1px solid #B8E4DA;
+    padding: 1rem 0;
+}
+.footer .footer-left ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer .footer-left ul li{
+    font-size: 1rem;
+    color: #fff;
+}
+
+.footer .footer-left h4{
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.footer .footer-right{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.footer .footer-right h5{
+       color: #fff;
+       margin-bottom: 1rem;
+       font-size: 1rem;
+  
+}
+.footer .footer-right ul li a{
+    color: #fff;
+    font-weight: 400;
+}
+
+footer .copyright{
+    text-align: center;
+    color: #fff;
+    margin-top: 1rem;
+
+}
