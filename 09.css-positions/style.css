@@ -1,0 +1,65 @@
+/* static
+relative
+absolute
+fixed
+sticky */
+
+body{
+    height: 200vh;
+}
+.boxes{
+    border: 5px solid black;
+    width: 80%;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.boxes > .box{
+    width: 100px;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box.box-a{
+    background-color: red;
+    position: relative;
+    top: 50px;
+    left: 10px;
+    /* z-index: 1; */
+}
+.box.box-b{
+    background-color: orange;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+.box.box-c{
+    background-color: teal;
+    position: absolute;
+    /* left: 0;
+    top: 0; */
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.box.box-d{
+    background-color: green;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.box.box-e{
+    background-color: purple;
+    position: sticky;
+    left: 100%;
+    top: 0;
+}
