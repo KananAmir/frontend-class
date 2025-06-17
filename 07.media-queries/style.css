@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    background-color: teal;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.wrapper .box{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+}
+
+
+
+@media only screen and (max-width: 1023px) {
+    .wrapper{
+        background-color: lightblue;
+    }
+    .wrapper .box{
+        background-color: yellow;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .wrapper{
+        background-color: lightgreen;
+        flex-direction: column;
+    }
+    .wrapper .box{
+        background-color: rgb(30, 13, 161);
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* 
+@media (orientation: landscape) {
+    .wrapper{
+        background-color: lightcoral;
+    }
+
+    .wrapper .box{
+        background-color: purple;
+        width: 30px;
+        height: 30px;
+    }
+} */
+/* min-width vs max-width */
+/* breakpoints */
+/* desktop first, mobile first */
+
+
+/* @media (768px <= width <= 1023px) {
+    .wrapper{
+        background-color: orange;
+    }
+    .wrapper .box{
+        background-color: pink;
+        width: 50px;
+        height: 50px;
+    }
+} */
+
+
+
+/* mobile first */
+
+/* @media only screen and (min-width: 768px){
+    .wrapper{
+        background-color: orange;
+    }
+    .wrapper .box{
+        background-color: pink;
+        width: 50px;
+        height: 50px;
+    }
+} */
