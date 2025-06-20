@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .form-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            flex: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4285f4;
+            background: white;
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin: 15px 0 25px 0;
+        }
+
+        .forgot-password a {
+            color: #4285f4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .primary-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #1e88e5, #1565c0);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .switch-form {
+            text-align: center;
+            margin: 20px 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .switch-form a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            color: #9ca3af;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            background: white;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-btn:hover {
+            border-color: #d1d5db;
+            background: #f9fafb;
+        }
+
+        .facebook-btn {
+            background: #4267b2;
+            color: white;
+            border-color: #4267b2;
+        }
+
+        .facebook-btn:hover {
+            background: #365899;
+            border-color: #365899;
+        }
+
+        .google-icon {
+            width: 18px;
+            height: 18px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjY0IDkuMjA0NTVDMTcuNjQgOC41NjY0MSAxNy41ODI3IDcuOTUyNzMgMTcuNDc2NCA3LjM2MzY0SDlWMTAuODQ1SDE0LjA0MzZDMTMuODQgMTEuOTcgMTMuMjU0NSAxMi45MjMgMTIuMzYzNiAxMy41NjE0VjE1LjgxOTFIMTUuMTA5MUMxNi42NTQ1IDE0LjQyMjcgMTcuNjQgMTIuMDMxOCAxNy42NCA5LjIwNDU1WiIgZmlsbD0iIzQyODVGNCIvPgo8cGF0aCBkPSJNOSAxOEM5IDEzLjUgMTEuNSAxMS41IDE1IDExLjVDMTYuNSAxMS41IDE3LjUgMTIgMTggMTNWMTVIMTVWMTNIMTJWMTVIOVYxOFoiIGZpbGw9IiMzNEE4NTMiLz4KPHBhdGggZD0iTTkgMTguMDAwMUM0LjAzNjM2IDE4LjAwMDEgMCAxMy45NjM3IDAgOS4wMDAwOUMwIDQuMDM2NDUgNC4wMzYzNiAwLjAwMDA5MTU1MjcgOSAwLjAwMDA5MTU1MjdDMTEuNDMgMC4wMDAwOTE1NTI3IDEzLjQ2IDEuMDMgMTQuOTYgMi41NkwxMi40NCA1LjA5QzExLjY5IDQuMzggMTAuNTMgMy45OSA5IDMuOTlDNi4yNCAzLjk5IDMuOTkgNi4yNCAzLjk5IDlTNi4yNCAxNC4wMSA5IDE0LjAxQzEwLjkgMTQuMDEgMTIuNDQgMTMuMDYgMTMuMTIgMTEuNjJIOVY4LjE4SDEzLjEyQzEzLjE5IDguNTMgMTMuMjMgOC44NyAxMy4yMyA5LjIzQzEzLjIzIDEzLjk0IDEwLjE3IDE4LjAwMDEgOSAxOC4wMDAxWiIgZmlsbD0iI0ZCQkMwNSIvPgo8L3N2Zz4K') no-repeat center;
+        }
+
+        .facebook-icon {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #4267b2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .form-panel {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-panel">
+            <h2 class="form-title">Login</h2>
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group password-input">
+                    <input type="password" class="form-input" placeholder="Password" required>
+                    <span class="password-toggle">👁</span>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="primary-btn">Login</button>
+            </form>
+
+            <div class="switch-form">
+                Don't have an account? <a href="#">Signup</a>
+            </div>
+
+            <div class="divider">
+                <span>Or</span>
+            </div>
+
+            <button class="social-btn facebook-btn">
+                <div class="facebook-icon">f</div>
+                Login with Facebook
+            </button>
+
+            <button class="social-btn">
+                <div class="google-icon"></div>
+                Login with Google
+            </button>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-panel">
+            <h2 class="form-title">Signup</h2>
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group password-input">
+                    <input type="password" class="form-input" placeholder="Create password" required>
+                </div>
+                <div class="form-group password-input">
+                    <input type="password" class="form-input" placeholder="Confirm password" required>
+                    <span class="password-toggle">👁</span>
+                </div>
+                <button type="submit" class="primary-btn">Signup</button>
+            </form>
+
+            <div class="switch-form">
+                Already have an account? <a href="#">Login</a>
+            </div>
+
+            <div class="divider">
+                <span>Or</span>
+            </div>
+
+            <button class="social-btn facebook-btn">
+                <div class="facebook-icon">f</div>
+                Login with Facebook
+            </button>
+
+            <button class="social-btn">
+                <div class="google-icon"></div>
+                Login with Google
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
