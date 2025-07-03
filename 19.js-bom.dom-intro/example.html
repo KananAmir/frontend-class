@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrapper{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <button class="start">start</button>
+        <h2 class="counter">0</h2>
+        <button class="stop">stop</button>
+    </div>
+
+
+
+    <script>
+        const startBtn = document.querySelector(".start")
+        const stopBtn = document.querySelector(".stop")
+        const counter = document.querySelector(".counter")
+
+        let count = 0
+        let intervalId = null
+
+     
+        stopBtn.disabled = true
+
+        startBtn.addEventListener("click", (event)=>{
+            // console.log(this);// window object
+            // console.log(event.target);
+            
+            event.target.disabled = true
+            stopBtn.disabled = false
+            // clearInterval(intervalId)
+            intervalId
+           intervalId = setInterval(()=>{
+                count++
+                counter.textContent = count
+            }, 1000)
+        })
+
+        stopBtn.addEventListener("click", (event)=>{
+            clearInterval(intervalId)
+            startBtn.disabled = false
+            event.target.disabled = true
+        })
+    </script>
+</body>
+
+</html>
