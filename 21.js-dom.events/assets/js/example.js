@@ -13,7 +13,7 @@ const products = [
     },
     {
         "id": 2,
-        "title": "Mens Casual Premium Slim Fit T-Shirts ",
+        "title": "Mens Casual Premium Slim Fit T-Shirts",
         "price": 22.3,
         "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         "category": "men's clothing",
@@ -240,7 +240,7 @@ const products = [
         }
     }
 ]
-
+const searchInput = document.querySelector(".search")
 const drawTable = (array) => {
     const tBody = document.querySelector("tbody")
     tBody.innerHTML = ""
@@ -302,3 +302,23 @@ const drawTable = (array) => {
 }
 
 drawTable(products)
+
+
+
+// searchInput.addEventListener("keyup", (e)=>{
+//     console.log(e.target.value);
+// })
+
+searchInput.addEventListener("input", (e)=>{
+    // console.log(e.target.value);
+    const searchValue = e.target.value.toLowerCase().trim()
+    const filteredProducts = products.filter((p)=>p.title.toLowerCase().trim().includes(searchValue))
+
+    // console.log(filteredProducts);
+    drawTable(filteredProducts)
+})
+
+
+// searchInput.addEventListener("change", (e)=>{
+//     console.log(e.target.value);
+// })

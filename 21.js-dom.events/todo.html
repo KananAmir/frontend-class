@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script defer src="./assets/js/todo.js"></script>
 </head>
-<body>
-    <form class="todo-form">
-        <input type="text" placeholder="enter todo here.." class="todo-text">
-        <button type="submit">Add</button>
-    </form>
 
-    <hr>
-    <ul class="todo-list">
-        
-    </ul>
+<body>
+
+    <div class="container my-5">
+        <h2 class="text-center my-4">Todo App</h2>
+
+        <div class="d-flex justify-content-center flex-column w-50 m-auto">
+            <form class="todo-form d-flex gap-3">
+                <input type="text" placeholder="enter todo here.." class="todo-text form-control">
+                <button class="btn btn-primary" type="submit">Add</button>
+            </form>
+            <p class="text-danger error-message d-none">Input can not be empty!</p>
+
+            <select class="form-select w-50 my-4 todo-filter" aria-label="Default select example">
+                <option selected hidden>Filter Todos</option>
+                <option value="completed">All Completed</option>
+                <option value="pending">All Pending</option>
+                <option value="all">All Todos</option>
+            </select>
+        </div>
+        <hr>
+
+        <ul class="list-group todo-list w-50 m-auto">
+            <!-- <li class="list-group-item list-group-item-primary mb-3 d-flex justify-content-between">
+               <div>
+                <input type="checkbox">
+                 <span>A simple primary list group item</span> 
+               </div>
+               <button>delete</button>
+            </li> -->
+        </ul>
+    </div>
+
+
 </body>
+
 </html>
