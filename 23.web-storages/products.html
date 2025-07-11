@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <style>
+        *{
+            text-decoration: none !important;
+            margin: 0;
+            padding: 0;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        .card .image-wrapper {
+            width: 100%;
+            height: 300px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card .fav {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            color: red;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    </style>
+
+    <script defer src="./assets/js/products.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container my-4">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <button class="btn btn-outline-warning mode">dark mode</button>
+                </div>
+
+                <nav>
+                    <ul class="d-flex gap-5">
+                        <li>
+                            <a href="products.html">Products List</a>
+                        </li>
+                        <li>
+                            <a href="wishlist.html">Wishlist <sup class="count" style="color: red;"></sup></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="products">
+        <div class="container">
+            <div class="products row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="image-wrapper">
+                            <img src="..." class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+
+                        <i class="fa-regular fa-heart fav"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
