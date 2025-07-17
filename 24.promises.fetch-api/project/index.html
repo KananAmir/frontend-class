@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"
+        defer></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./assets/js/main.js" defer></script>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .loading{
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #FF3D00;
+            position: relative;
+        }
+
+        .loader:before,
+        .loader:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            inset: 0;
+            background: #fff;
+            transform: rotate(0deg) translate(30px);
+            animation: rotate 1s ease infinite;
+        }
+
+        .loader:after {
+            animation-delay: 0.5s
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg) translate(30px)
+            }
+        }
+    </style>
     <title>Document</title>
 </head>
+
 <body>
 
-     <header>
+    <header>
         <nav>
             <ul>
                 <li>
@@ -25,29 +73,49 @@
             </ul>
         </nav>
     </header>
-   <section id="books">
-        <h2 class="text-center my-4">Books Table</h2>
-     <div class="container">
-        <div class="books">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Title</td>
-                        <td>Price</td>
-                        <td>Description</td>
-                        <td>Stock Count</td>
-                        <td>Cover Image</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
-                <tbody>
-                
-                </tbody>
-            </table>
+
+    <section id="books">
+        <h2 class="text-center my-4 text-white">Books Table</h2>
+        <div class="container">
+            <div class="my-3 d-flex justify-content-between">
+                <input id="search" type="search" class="form-control w-25" placeholder="search book..">
+                <select name="sort" id="sort" class="form-select w-25">
+                    <option value="" selected disabled>Sort By</option>
+                    <option value="ascByPrice">Asc by Price</option>
+                    <option value="descByPrice">Desc by Price</option>
+                    <option value="ascByTitle">Asc by Title</option>
+                    <option value="descByTitle">Desc by Title</option>
+                    <option value="default">Default</option>
+                </select>
+            </div>
         </div>
-    </div>
-   </section>
-    
+        <div class="container">
+            <div class="books">
+                <div class="loading d-none">
+                    <div class="loader"></div>
+                </div>
+                <div class="table-wrapper d-none">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Title</td>
+                            <td>Price</td>
+                            <td>Description</td>
+                            <td>Stock Count</td>
+                            <td>Cover Image</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
+
 </html>

@@ -5,7 +5,7 @@ const description = document.getElementById('description');
 const stock = document.getElementById('stock');
 const coverImageURL = document.getElementById('coverImageURL');
 
-addBookForm.addEventListener("submit", async(e)=>{
+addBookForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
         const newBook = {
@@ -16,13 +16,25 @@ addBookForm.addEventListener("submit", async(e)=>{
             coverImageURL: coverImageURL.value
         }
 
-       const response =  await fetch("https://book-store-api-liard-three.vercel.app/books", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newBook)
-       })
+        const confirmation = isValidateForm()
+
+        if (!confirmation) {
+            // window.alert("fill all inputs!")
+
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You should fill all fileds!",
+            });
+            return;
+        }
+        const response = await fetch("https://book-store-api-liard-three.vercel.app/books", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newBook)
+        })
 
         // if(response.ok) {
         //     // const data = await response.json();
@@ -33,9 +45,22 @@ addBookForm.addEventListener("submit", async(e)=>{
         // }
 
         e.target.reset();
-        window.location.href = "index.html"; 
-  
+        window.location.href = "index.html";
+
     } catch (error) {
         console.log(error);
     }
 })
+
+
+function isValidateForm() {
+    if (title.value.trim() === "" ||
+        price.value.trim() === "" ||
+        description.value.trim() === "" ||
+        stock.value.trim() === "" ||
+        coverImageURL.value.trim() === "") {
+        return false
+    }
+
+    return true
+}
