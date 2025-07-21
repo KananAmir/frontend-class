@@ -1,3 +1,8 @@
+const id = new URLSearchParams(window.location.search).get("id")
+
+// console.log(id);
+
+
 const addBookForm = document.getElementById('addBookForm');
 const title = document.getElementById('title');
 const price = document.getElementById('price');
@@ -19,7 +24,6 @@ addBookForm.addEventListener("submit", async (e) => {
         const confirmation = isValidateForm()
 
         if (!confirmation) {
-            // window.alert("fill all inputs!")
 
             Swal.fire({
                 icon: "error",
@@ -28,26 +32,17 @@ addBookForm.addEventListener("submit", async (e) => {
             });
             return;
         }
-        const response = await fetch("https://book-store-api-liard-three.vercel.app/books", {
-            method: "POST",
+        const response = await fetch(`https://book-store-api-liard-three.vercel.app/books/${id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newBook)
         })
 
-        // if(response.ok) {
-        //     // const data = await response.json();
-        //     // addBookForm.reset();
-        //     e.target.reset();
-        // } else {
-        //     console.error("Failed to add book:", response.statusText);
-        // }
 
-
-        
         Toastify({
-            text: "Book added successfully!",
+            text: "Book edited successfully!",
             duration: 2000,
             //   destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
@@ -62,9 +57,10 @@ addBookForm.addEventListener("submit", async (e) => {
         }).showToast();
 
         e.target.reset();
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 2000);
+
+       setTimeout(() => {
+         window.location.href = "index.html";
+       }, 2000);
 
     } catch (error) {
         console.log(error);
@@ -82,4 +78,51 @@ function isValidateForm() {
     }
 
     return true
+}
+
+
+async function fillInputFileds(bookId) {
+    try {
+        const response = await fetch(`https://book-store-api-liard-three.vercel.app/books/${bookId}`)
+        const data = await response.json()
+        // console.log(data);
+
+        if (response.status === 404) {
+            // window.alert("no such book with this id!")
+            Toastify({
+            text: "No such book with this id!",
+            duration: 2000,
+            //   destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, red, orange)",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+            return
+        }
+
+        title.value = data.title
+        price.value = data.price
+        description.value = data.description
+        stock.value = data.price
+        coverImageURL.value = data.coverImageURL
+        // if (response.status === 200) {
+        //     title.value = data.title
+        //     price.value = data.price
+        //     description.value = data.description
+        //     stock.value = data.price
+        //     coverImageURL.value = data.coverImageURL
+        // }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+if (id) {
+    fillInputFileds(id)
 }

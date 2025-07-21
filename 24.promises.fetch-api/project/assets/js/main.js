@@ -54,6 +54,8 @@ function renderBooks(books) {
             <td><img src="${book.coverImageURL}" width="100"/></td>
             <td>
                 <button class="btn btn-outline-danger delete" data-id="${book.id}"><i class="fa-solid fa-trash"></i></button>
+                <a href="editBook.html?id=${book.id}" class="btn btn-outline-success edit" data-id="${book.id}"><i class="fa-solid fa-edit"></i></a>
+
             </td>
         `
         tBody.appendChild(row);
